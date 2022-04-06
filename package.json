@@ -22,7 +22,7 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "sequelize": "^6.3.4",
-    "swagger-jsdoc": "^6.2.0",
+    "swagger-jsdoc": "^4.0.0",
     "swagger-ui-express": "^4.1.4",
     "twitter": "^1.7.1",
     "winston": "^3.3.3",
@@ -40,7 +40,8 @@
     "sinon": "^9.2.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate": "node ./database/migration/index"
   },
   "author": "Osagie Eloghosa",
   "license": "ISC"

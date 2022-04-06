@@ -12,7 +12,23 @@ const ErrorHandler = require("./utils/ErrorHandler");
 // require route
 const allRoutes = require("./routes");
 const swaggerUi = require("swagger-ui-express");
-const swaggerDocument = require("./chi-wallet.json");
+
+
+const swaggerJSDoc = require('swagger-jsdoc');
+
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      title: "Chi Wallet API",
+      version: '1.0.0',
+    },
+  },
+  apis: ['./routes/api/UserRoute.js'],
+};
+
+const swaggerDocs = swaggerJSDoc(swaggerOptions);
+
+
 
 const PORT = process.env.PORT || 4000;
 
@@ -28,10 +44,11 @@ app.use(expressFileupload());
 app.use(cors());
 
 // api documentation
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
 
 // all routes
-app.use("/v1", allRoutes);
+app.use("/", allRoutes);
 
 // Handle unhandled routes
 app.all("*", (req, res, next) => {
@@ -43,4 +60,3 @@ app.use(errorMiddleware);
 
 server.listen(PORT, () => console.log(`Server is live on port ${PORT}`));
 
-module.exports = server;
