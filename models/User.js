@@ -55,12 +55,18 @@ module.exports = (sequelize, DataTypes) => {
             args: true,
             msg: "plan field is required"
           }
-        }
+        },
+        defaultValue: "Basic"
       },
       amount :{
         type: DataTypes.BIGINT,
-        allowNull: true,
-        defaultValue:0
+        allowNull: false,
+        validate: {
+          notNull: {
+            args: true,
+            msg: "amount field is required, put a minimum of 10chi-money"
+          }
+        }
       },
       isVerified: {
         type: DataTypes.BOOLEAN,
@@ -85,22 +91,5 @@ module.exports = (sequelize, DataTypes) => {
   User.associate = function (models) {};
 
   // instance method
-  User.prototype.generateJwtToken = function () {
-    return jwt.sign(
-      {
-        id: this.id,
-
-      },
-      process.env.APP_TOKEN_KEY,
-      {
-        expiresIn: "2d"
-      }
-    );
-  };
-
-  User.prototype.comparePassword = async function (password) {
-    return await bcrypt.compare(password, this.password);
-  };
-
   return User;
 };
