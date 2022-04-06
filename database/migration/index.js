@@ -1,7 +1,5 @@
 require('dotenv').config();
-const {sequelize, user,role} = require('../../models');
-
-
+const {sequelize, user} = require('../../models');
 
 sequelize
   .authenticate()

@@ -1,8 +1,4 @@
 const bcrypt = require("bcryptjs");
-const crypto = require("crypto");
-const models = require("../models");
-const ErrorHandler = require("../utils/ErrorHandler");
-const { randomSixDigits, validateEmail } = require("../utils/helper");
 
 class Authentication {
   /**

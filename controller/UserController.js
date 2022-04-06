@@ -25,8 +25,6 @@ exports.createUserWallet = catchAsyncError(async(req, res, next) => {
         newUserWallet
     })
 
-
-
 })
 
 /**
