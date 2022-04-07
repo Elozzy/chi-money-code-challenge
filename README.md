@@ -2,7 +2,14 @@
 
 # About
 
-Assuming Chi money has 3 set of users and each users create chi-wallets based on a set of plans e.g Business plan, Premium plan and Basic plan. And each plans determine the maximum amount a user can hold and the priviliges a user has on the chi-wallet app.
+This exercise is based on the following assumptions.
+
+That Chimoney has 3 set of users and each users create Chimoney wallets ( accounts ) based on a set of plans e.g Business plan, Premium plan and Basic plan, and each plans determine the maximum amount ($) a user can hold and the priviliges a user has on the Chimoney wallet app.
+
+To enable this an API with two endpoints would be created:
+
+- endpoint to create a user wallet
+- endpoint to get all user and their current wallets.
 
 ## Tech Stack Used
 
@@ -12,9 +19,8 @@ Assuming Chi money has 3 set of users and each users create chi-wallets based on
 - [Sequelize](https://sequelize.org/)
 
 ## Application Features
-
 - endpoint to create a user wallet
-- endpoint to get all user and their current
+- endpoint to get all user and their current wallets.
 
 ## How To Use
 
